@@ -6,7 +6,7 @@
           <div class="avatar_box">
               <img src="~assets/logo.png" alt="">
           </div>
-          <!-- 表单区域 -->
+          <!-- 登录页面用表单来做 表单区域 -->
           <el-form ref = "loginFormRef" :model = "loginForm" label-width="0" class="login_form" :rules = "loginFormRules">
               <!-- 用户名 -->
             <el-form-item prop = "username">
@@ -84,7 +84,7 @@ export default {
           //预验证
           this.$refs.loginFormRef.validate(async validate => {
               if(!validate) return;
-              const {data : res} = await getLoginData(this.loginForm.username,this.loginForm.password); //返回一个promise
+              const {data : res} = await getLoginData(this.loginForm); //返回一个promise
               if(res.meta.status !== 200) return this.$message.error("登录失败");;
               this.$message.success("登录成功");
               console.log(res);

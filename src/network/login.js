@@ -1,11 +1,5 @@
-import {request} from './request'
+import apiList from './apiList'
 
-export function getLoginData(username,password) {
-    return request({
-        url:'/login',
-        params: {
-            username,
-            password,
-        }
-    });
+export function getLoginData(loginForm) {
+    return apiList.post('/login',loginForm);
 }
