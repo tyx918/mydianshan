@@ -5,6 +5,8 @@ const login = () => import('components/Login')
 const home = () => import('components/Home')
 const welcome = () => import('components/Welcome')
 const users = () => import('components/user/users')
+const rights = () => import('components/power/Rights')
+const roles = () => import('components/power/Roles')
 
 Vue.use(VueRouter)
 
@@ -20,6 +22,7 @@ const routes = [
     {
         path:'/home',
         component:home,
+        // 访问home组件就重定向到welcome
         redirect:'/welcome',
         // 在home的路由下
         children: [
@@ -30,6 +33,14 @@ const routes = [
             {
                 path:'/users',
                 component:users
+            },
+            {
+                path:'/rights',
+                component:rights
+            },
+            {
+                path:'/roles',
+                component:roles
             }
         ]
     }

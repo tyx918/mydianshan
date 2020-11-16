@@ -28,7 +28,7 @@
 
 <script>
 
-import {getLoginData} from "network/login"
+import { getLoginData, } from "network/compoApi/login"
 
 export default {
   name: 'login',
@@ -84,7 +84,7 @@ export default {
           //预验证
           this.$refs.loginFormRef.validate(async validate => {
               if(!validate) return;
-              const {data : res} = await getLoginData(this.loginForm); //返回一个promise
+              const {data : res} = await getLoginData('/login',this.loginForm); //返回一个promise
               if(res.meta.status !== 200) return this.$message.error("登录失败");;
               this.$message.success("登录成功");
               console.log(res);

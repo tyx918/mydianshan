@@ -26,7 +26,7 @@
                             <!-- 一级菜单的图标 -->
                             <span>{{menu.authName}}</span>
                         </template>
-                        <!--二级菜单 -->
+                        <!--二级菜单 :index = "'/' + item.path"表示要跳转的路由-->
                         <el-menu-item :index = "'/' + item.path" v-for = "(item , index1) in menu.children" 
                                       :key="item.id" @click = "saveNavState('/' + item.path)">
                             <template slot="title">
@@ -49,7 +49,7 @@
 
 <script>
 
-import {getMenuList} from "network/home"
+import { getMenuList } from "network/compoApi/home"
 
 export default {
   name:'home',
@@ -70,6 +70,7 @@ export default {
   },
   created() {
       this.getMenuList1();
+      //被创建的时候就加载
       this.activePath = window.sessionStorage.getItem('activePath');
   },
   components: {},
@@ -85,11 +86,11 @@ export default {
     */
       logout() {
           window.sessionStorage.clear();
-          this.$router.push('/login');
+          this.$router.push('/login'); //路由跳转
       },
       //获取所有的菜单
       async getMenuList1() {
-        const {data : res} = await getMenuList();
+        const {data : res} = await getMenuList('/menus');
         if(res.meta.status!==200) return this.$message.error(res.meta.msg);
         this.menuList = res.data;
         //console.log("menuList的值",this.menuList);

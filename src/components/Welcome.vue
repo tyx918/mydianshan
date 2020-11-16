@@ -1,7 +1,7 @@
 <!--  -->
 <template>
-  <div>
-      <h1>welcome</h1>
+  <div class = "welcome"> 
+      welcome
   </div>
 </template>
 
@@ -24,4 +24,10 @@ export default {
 
 </script>
 <style scoped>
+    .welcome {
+        position: relative;
+        top:50%;
+        left: 50%;
+        /* transform: translate(-50%,-50%); */
+    }
 </style>

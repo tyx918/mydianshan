@@ -1,4 +1,4 @@
-import apiList from './apiList'
+import apiList from '../networkApi/apiList'
 
 function getUserData(url,queryInfo) {
     return apiList.get(url,queryInfo);
@@ -21,10 +21,16 @@ function putChangeUserData(url,config) {
 }
 
 function deleteUser(url) {
-    console.log("----");
     return apiList.deleteMy(url);
 }
 
+function getAllUser(url) {
+    return apiList.get(url);
+}
+
+function allotRole(url,config) {
+    return apiList.put(url,config);
+}
 
 export {
     getUserData,
@@ -32,5 +38,7 @@ export {
     putUserData,
     changeUserData,
     putChangeUserData,
-    deleteUser
+    deleteUser,
+    getAllUser,
+    allotRole,
 }
