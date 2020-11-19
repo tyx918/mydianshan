@@ -176,7 +176,7 @@ export default {
           const { data:res } = await authRoles(`roles/${this.roleId}/rights`,{ rids:idStr });
           console.log(res);
           if(res.meta.status !== 200) {return this.$message.error('授权用户权限失败');}
-          this.$message.success('授权用户权限成功');
+          this.$message.success('成功');
           this.getRolesList();
           this.setRightDialogVisible = false;
       }

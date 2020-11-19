@@ -1,6 +1,8 @@
 import apiList from '../networkApi/apiList'
 
 function getUserData(url,queryInfo) {
+    console.log('uset中的打印数据');
+    console.log(queryInfo);
     return apiList.get(url,queryInfo);
 }
 

@@ -2,8 +2,9 @@ import axios from 'axios'
 
 
 const ajax = axios.create({
-    baseURL:'http://127.0.0.1:8888/api/private/v1/',
-    timeout:5000,
+    //baseURL:'http://127.0.0.1:8888/api/private/v1/',
+    baseURL:'https://www.liulongbin.top:8888/api/private/v1/',
+    timeout:8000,
 })
 // axios的拦截器:预处理请求
 ajax.interceptors.request.use(config => {
