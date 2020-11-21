@@ -10,9 +10,19 @@ import TreeTable from "vue-table-with-tree-grid"
 import "assets/css/global.css"
 import "assets/font-icon/iconfont.css"
 
-// import axios from "axios"
+import axios from "axios"
+axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/',
 // axios.defaults.baseURL = 'https://www.liulongbin.top:8888/api/private/v1/';
-// Vue.prototype.$http = axios;
+Vue.prototype.$http = axios;
+
+// axios的拦截器:预处理请求
+axios.interceptors.request.use(config => {
+    config.headers.Authorization = window.sessionStorage.getItem('token');
+    //1.显示图标
+    return config;
+},err => {
+    console.log(err);
+});
 
 Vue.config.productionTip = false
 

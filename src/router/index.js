@@ -8,6 +8,7 @@ const users = () => import('components/user/users')
 const rights = () => import('components/power/Rights')
 const roles = () => import('components/power/Roles')
 const cate = () => import('components/goods/Cate')
+const params= () => import('components/params/Params')
 
 Vue.use(VueRouter)
 
@@ -29,23 +30,27 @@ const routes = [
         children: [
             {
                 path:'/welcome',
-                component:welcome,
+                component: welcome,
             },
             {
                 path:'/users',
-                component:users
+                component: users
             },
             {
                 path:'/rights',
-                component:rights
+                component: rights
             },
             {
                 path:'/roles',
-                component:roles
+                component: roles
             },
             {
                 path:'/categories',
-                component:cate,
+                component: cate,
+            },
+            {
+                path:'/params',
+                component: params
             }
         ]
     }
